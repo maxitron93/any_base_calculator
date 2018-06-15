@@ -1,0 +1,17 @@
+.header {
+  background: $header-footer-color;
+  padding: 20px;
+}
+
+.header__title {
+  margin: 0px;
+  color: $light-text-color;
+  font-size: 3rem;
+}
+
+.header__subtitle {
+  margin: 0px;
+  color: $light-text-color;
+  font-size: 1.8rem;
+  padding-top: 10px;
+}

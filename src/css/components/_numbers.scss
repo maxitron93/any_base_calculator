@@ -1,0 +1,10 @@
+.numbers {
+  display: inline-flex;
+  float: right;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: $operators-numbers-height;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: 80%;
+}

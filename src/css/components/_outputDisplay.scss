@@ -1,0 +1,36 @@
+.output-display {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin: 2px;
+  background: $output-display-background-color;
+}
+
+.output-display__base-change-area {
+  display: inline-block;
+  width: 15%;
+}
+
+.output-display__base-change-area p {
+  text-align: center;
+  margin-bottom: 5px;
+  color: $light-text-color;
+}
+
+.output-display__base-change-area input {
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.output-display__base-output-area {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+  margin: 0 10px;
+  height: 100%;
+  font-size: 1.8rem;
+  color: $light-text-color;
+}

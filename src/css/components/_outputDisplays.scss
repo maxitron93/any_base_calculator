@@ -1,0 +1,18 @@
+.output-displays ion-icon[name="remove-circle"] {
+  color: $remove-button-color;
+  transform: scale(1.5);
+  margin-left: 20px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.output-displays ion-icon[name="add-circle"] {
+  color: $add-button-color;
+  transform: scale(1.5);
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.output-displays ion-icon:hover {
+  cursor: pointer;
+}

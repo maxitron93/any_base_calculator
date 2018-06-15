@@ -1,0 +1,12 @@
+.operation {
+  display: inline-block;
+  border: 1px solid $calculator-background-color;
+  width: 25%;
+  background: $operations-background-color;
+  text-align: center;
+  padding: $operations-numbers-padding;
+}
+
+.operation:hover {
+  cursor: pointer;
+}

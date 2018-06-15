@@ -1,0 +1,3 @@
+const funSymbols = ["0a", "1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "Aa", "Ba", "Ca", "Da", "Ea", "Fa", "Ga", "Ha", "Ia", "Ja", "Ka", "La", "Ma", "Na", "Oa", "Pa", "Qa", "Ra", "Sa", "Ta", "Ua", "Va",  "Wa", "Xa", "Ya", "Za", "aa", "ba", "ca", "da", "ea", "fa", "ga", "ha", "ia", "ja", "ka", "la", "ma", "na", "oa", "pa", "qa", "ra", "sa", "ta", "ua", "va", "wa", "xa", "ya", "za", "!a", "$a"]
+
+export { funSymbols }

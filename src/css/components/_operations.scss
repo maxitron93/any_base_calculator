@@ -1,0 +1,30 @@
+.operations {
+  display: inline-block;
+  width: 20%;
+  height: $operators-numbers-height;
+}
+
+.operations button {
+  border: 1px solid $calculator-background-color;
+  outline: none;
+  padding: $operations-numbers-padding;
+}
+
+.operations button:hover {
+  cursor: pointer;
+}
+
+.operations__equals {
+  width: 75%;
+  background: $operations-background-color;
+}
+
+.operations__delete {
+  width: 25%;
+  background: $clear-buttons-background-color;
+}
+
+.operations__clear {
+  width: 75%;
+  background: $clear-buttons-background-color;
+}

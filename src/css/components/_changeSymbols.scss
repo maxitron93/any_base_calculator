@@ -1,0 +1,20 @@
+.change-symbols__prompt {
+  font-size: 1.7rem;
+}
+
+.change-symbols__button {
+  margin-left: 10px; 
+  padding: 3px 20px;
+  border: 1px solid rgb(163, 163, 163);
+  background: #27AE60; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, orange, green, rgb(66, 66, 255), violet); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, orange, green, rgb(66, 66, 255), violet); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, orange, green, rgb(66, 66, 255), violet); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, orange, green, rgb(66, 66, 255), violet); /* Standard syntax (must be last) */
+  color: white;
+  outline: none;
+}
+
+.change-symbols__button:hover {
+  cursor: pointer;
+}

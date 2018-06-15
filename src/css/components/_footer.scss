@@ -1,0 +1,12 @@
+.footer {
+  background: $header-footer-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.footer__text {
+  padding: 20px;
+  color: $light-text-color;
+}

@@ -1,0 +1,34 @@
+.input-display {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin: 2px;
+  background: $input-display-background-color;
+}
+
+.input-display__base-change-area {
+  display: inline-block;
+  width: 15%;
+}
+
+.input-display__base-change-area p {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.input-display__base-change-area input {
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input-display__base-input-area {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+  margin: 0 10px;
+  height: 100%;
+  font-size: 1.8rem;
+}
