@@ -20,7 +20,7 @@ const convertAfterDeciamlToBase = (numberAfterDecimal, base, symbols) => {
   let convertedNumberArray = []
 
   // The while loop does not run until numberAfterDecimal === 0 because it may run forever (infinate decimal places)
-    while (numberAfterDecimal >= 0.00000001) { 
+    while (numberAfterDecimal >= 0.0001) { 
       // 1. Calculate the decimal value of the decimalPlace
       valueAtDecimalPlace = base ** -decimalPlace
 

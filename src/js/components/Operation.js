@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 const Operation = (props) => {
   const addOperationAndTrack = async () => {
+    await props.handleDisableEvaluate();
     await props.addToInputCalculation(props.operatorValue);
     props.trackInputCalculation();
   }

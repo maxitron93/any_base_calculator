@@ -8,7 +8,7 @@
 
 .input-display__base-change-area {
   display: inline-block;
-  width: 15%;
+  width: 20%;
 }
 
 .input-display__base-change-area p {
@@ -27,8 +27,9 @@
   display: inline-flex;
   justify-content: flex-end;
   align-items: center;
-  width: 85%;
+  width: 80%;
   margin: 0 10px;
   height: 100%;
   font-size: 1.8rem;
+  overflow: hidden;
 }

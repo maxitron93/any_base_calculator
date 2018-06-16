@@ -8,7 +8,7 @@ const Numbers = (props) => {
       {props.symbols.map((current, index, array) => {
         while (index < props.currentBase) {
           return (
-            <Number key={index} symbol={current} addToInputCalculation={props.addToInputCalculation} trackInputCalculation={props.trackInputCalculation}/>
+            <Number key={index} symbol={current} addToInputCalculation={props.addToInputCalculation} trackInputCalculation={props.trackInputCalculation} handleDisableEvaluate={props.handleDisableEvaluate}/>
           )
         }
       })}

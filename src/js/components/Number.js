@@ -5,6 +5,7 @@ const Number = (props) => {
   const addNumberAndTrackInput = async () => {
     await props.addToInputCalculation(props.symbol)
     props.trackInputCalculation();
+    props.handleDisableEvaluate();
   }
 
   return (

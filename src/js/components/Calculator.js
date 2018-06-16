@@ -16,13 +16,15 @@ class Calculator extends React.Component {
     symbols: symbols,
     inputBase: 64,
     inputCalculation: "",
-    inputCalculationInBase10: ""
+    inputCalculationInBase10: "",
+    evaluate: false
   }
 
   changeInputBase = (newBase) => {
     this.setState(() => {
       return {
-        inputBase: newBase
+        inputBase: newBase,
+        evaluate: false
       }
     })
   }
@@ -60,9 +62,24 @@ class Calculator extends React.Component {
 
   deleteFromInputCalculation = () => {
     this.setState((prevState) => {
-      return {
-        inputCalculation: prevState.inputCalculation.slice(0, -1)
+      let testString = prevState.inputCalculation.slice(-1)
+      if (testString === " ") {
+        let testForPower = prevState.inputCalculation.slice(-4)
+        if (testForPower === " ** ") {
+          return {
+            inputCalculation: prevState.inputCalculation.slice(0, -4)
+          }
+        } else {
+          return {
+            inputCalculation: prevState.inputCalculation.slice(0, -3)
+          }
+        }
+      } else {
+        return {
+          inputCalculation: prevState.inputCalculation.slice(0, -1)
+        }
       }
+      
     })
   }
 
@@ -85,7 +102,7 @@ class Calculator extends React.Component {
 
     // 3. Convert the array back into a string
     let convertedString = convertedArray.join(" ")
-
+    // console.log(convertedString)
     // 4. Update state of inputCalculationInBase10 with the string
     this.setState(() => {
       return {
@@ -94,19 +111,27 @@ class Calculator extends React.Component {
     })
   }
 
-  evaluateInputCalculation = () => {
-    try {
-      console.log(eval(this.state.inputCalculation))
-    } catch(error) {
-      console.log("Error")
-    }
+  handleEvaluate = () => {
+    this.setState(() => {
+        return {
+          evaluate: true
+        }
+    })
+  }
+
+  handleDisableEvaluate = () => {
+    this.setState(() => {
+      return {
+        evaluate: false
+      }
+  })
   }
 
   render() {
     return (
       <div className="calculator">
-        <OutputDisplays inputCalculationInBase10={this.state.inputCalculationInBase10} symbols={this.state.symbols}/>
-        <CalculationArea symbols={this.state.symbols} changeInputBase={this.changeInputBase} currentBase={this.state.inputBase} toggleFunSymbols={this.toggleFunSymbols} inputCalculation={this.state.inputCalculation} addToInputCalculation={this.addToInputCalculation} clearInputCalculation={this.clearInputCalculation} deleteFromInputCalculation={this.deleteFromInputCalculation} evaluateInputCalculation={this.evaluateInputCalculation} trackInputCalculation={this.trackInputCalculation}/>
+        <OutputDisplays inputCalculationInBase10={this.state.inputCalculationInBase10} symbols={this.state.symbols} evaluate={this.state.evaluate}/>
+        <CalculationArea symbols={this.state.symbols} changeInputBase={this.changeInputBase} currentBase={this.state.inputBase} toggleFunSymbols={this.toggleFunSymbols} inputCalculation={this.state.inputCalculation} addToInputCalculation={this.addToInputCalculation} clearInputCalculation={this.clearInputCalculation} deleteFromInputCalculation={this.deleteFromInputCalculation} handleEvaluate={this.handleEvaluate} trackInputCalculation={this.trackInputCalculation} handleDisableEvaluate={this.handleDisableEvaluate}/>
       </div>
     )
   }

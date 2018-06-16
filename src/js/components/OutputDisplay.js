@@ -45,6 +45,24 @@ class OutputDisplay extends React.Component {
     }  
   }
 
+  evaluateString = (decimalString, base, symbols) => {
+    try {
+      let stringWithUpdatedNegativeSymbols = decimalString.replace("~", "-")
+      let evaluatedStringInDecimal = eval(stringWithUpdatedNegativeSymbols).toString()
+      console.log(evaluatedStringInDecimal)
+      if (evaluatedStringInDecimal > 9900000000000000000) {
+        return "Value too big. The maximum calculable value is 9 quintillion (9x10^18)"
+      } else {
+        evaluatedStringInDecimal = evaluatedStringInDecimal.replace("-", "~")
+        let evaluatedStringInBase = convertDecimalToBase(evaluatedStringInDecimal, base, symbols)
+        return evaluatedStringInBase
+      }
+    } catch(error) {
+      return "Cannot be evaluated. Please check your calculation."
+    }
+    
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.inputCalculationInBase10 !== this.props.inputCalculationInBase10) {
       this.setState(() => {
@@ -70,7 +88,7 @@ class OutputDisplay extends React.Component {
         <p>display in base:</p>
         <input type="text" onChange={this.changeBase} defaultValue={this.state.outputBase}/>
       </div>
-      <div className="output-display__base-output-area">{this.state.outputString}</div>
+      <div className="output-display__base-output-area">{this.props.evaluate ? this.evaluateString(this.props.inputCalculationInBase10, this.state.outputBase, this.props.symbols) : this.state.outputString}</div>
     </div>
     )
   }
