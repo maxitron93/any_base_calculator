@@ -49,7 +49,6 @@ class OutputDisplay extends React.Component {
     try {
       let stringWithUpdatedNegativeSymbols = decimalString.replace("~", "-")
       let evaluatedStringInDecimal = eval(stringWithUpdatedNegativeSymbols).toString()
-      console.log(evaluatedStringInDecimal)
       if (evaluatedStringInDecimal > 9900000000000000000) {
         return "Value too big. The maximum calculable value is 9 quintillion (9x10^18)"
       } else {

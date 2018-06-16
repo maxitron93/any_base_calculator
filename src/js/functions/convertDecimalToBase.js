@@ -12,7 +12,8 @@ const convertBeforeDeciamlToBase = (numberBeforerDecimal, base, symbols) => {
 // Converting decimal places from base ten to decimal places in other bases
 const convertAfterDeciamlToBase = (numberAfterDecimal, base, symbols) => {
   // Add "0." to the start of the number
-  numberAfterDecimal = eval(`0.${(numberAfterDecimal.toString())}`)
+  // console.log(numberAfterDecimal)
+  numberAfterDecimal = eval(`0.${numberAfterDecimal}`)
   
   // Declare all the variables I need in the function
   let unitAtDecimalPlace, valueAtDecimalPlace, symbolIndex;
@@ -20,7 +21,7 @@ const convertAfterDeciamlToBase = (numberAfterDecimal, base, symbols) => {
   let convertedNumberArray = []
 
   // The while loop does not run until numberAfterDecimal === 0 because it may run forever (infinate decimal places)
-    while (numberAfterDecimal >= 0.0001) { 
+    while (numberAfterDecimal >= 0.0000001) { 
       // 1. Calculate the decimal value of the decimalPlace
       valueAtDecimalPlace = base ** -decimalPlace
 
@@ -49,21 +50,21 @@ const convertDecimalToBase = (number, base, symbols) => {
 
   // 1. Convert number to strung
   let numberAsString = number.toString()
-
+  // console.log(numberAsString)
   // 2. Test if string includes "." and adds ".0" if not 
   if (!numberAsString.includes(".")) {
     numberAsString = numberAsString + ".0"
   }
-
+  // console.log(numberAsString)
   // 3. Split into two elements by "."
   let numbersArray = numberAsString.split(".")
-
+  // console.log(numbersArray)
   // 4. Convert numberAsArray[0] to a number in the desired base (result is a String)
   let baseBeforeDecimal = convertBeforeDeciamlToBase(parseInt(numbersArray[0], 10), base, symbols)
   
   // 5. Convert numberAsArray[1] to a number in the desired base (result is a String)
-  let baseAfterDecimal = convertAfterDeciamlToBase(parseInt(numbersArray[1], 10), base, symbols)
-
+  let baseAfterDecimal = convertAfterDeciamlToBase(numbersArray[1], base, symbols)
+  // console.log(baseAfterDecimal)
   // 6. Join the two numbers (strings) with a "." in the middle
   let baseNumber
   if (baseAfterDecimal) {

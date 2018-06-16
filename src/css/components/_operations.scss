@@ -19,6 +19,10 @@
   background: $operations-background-color;
 }
 
+.operations__equals:hover {
+  background: $operations-background-color-hover;
+}
+
 .operations__delete {
   width: 25%;
   background: $clear-buttons-background-color;
@@ -27,4 +31,9 @@
 .operations__clear {
   width: 75%;
   background: $clear-buttons-background-color;
+}
+
+.operations__delete:hover,
+.operations__clear:hover {
+  background: $clear-buttons-background-color-hover;
 }

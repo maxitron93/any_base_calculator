@@ -24,6 +24,10 @@
   text-align: center;
 }
 
+.output-display__base-change-area input:hover {
+  border: 2px solid $output-display-border-hover;
+}
+
 .output-display__base-output-area {
   display: inline-flex;
   justify-content: flex-end;

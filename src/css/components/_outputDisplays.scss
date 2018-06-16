@@ -13,6 +13,14 @@
   margin-bottom: 5px;
 }
 
+.output-displays ion-icon[name="remove-circle"]:hover {
+  color: $remove-button-color-hover;
+}
+
+.output-displays ion-icon[name="add-circle"]:hover {
+  color: $add-button-color-hover;
+}
+
 .output-displays ion-icon:hover {
   cursor: pointer;
 }

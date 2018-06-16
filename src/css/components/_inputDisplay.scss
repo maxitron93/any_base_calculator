@@ -23,6 +23,10 @@
   text-align: center;
 }
 
+.input-display__base-change-area input:hover {
+  border: 2px solid $input-display-border-hover;
+}
+
 .input-display__base-input-area {
   display: inline-flex;
   justify-content: flex-end;

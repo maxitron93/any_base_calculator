@@ -21,6 +21,7 @@ const convertBaseToDecimal = (numberAsString, base, symbols) => {
   let numbersArray = numberAsString.split(".")
   // Result is: numberAsArray = ["F5", "4A"]
   
+  
   // 3. Convert numberAsArray[0] to decimal (result is a String)
   // -- 1. Split the string into an array of single units
   let beforeDecimalArray = numbersArray[0].split("") 
@@ -43,24 +44,24 @@ const convertBaseToDecimal = (numberAsString, base, symbols) => {
   // -- 1. Split the string into an array of single units
   let afterDecimalArray = numbersArray[1].split("") 
   // Result is: afterDecimalArray = ["4", "A"]
-
+  // console.log(afterDecimalArray)
   // -- 2. Convert each unit into decimal based on its position
   let newAfterDecimalArray = afterDecimalArray.map((current, index) => {
     return convertUnitToDecimal(current, base, ((index + 1) * -1), symbols)
   })
   // Result is: afterDecimalArray = ["0.25", "0.0390625"]
-
+  // console.log(newAfterDecimalArray)
   // -- 3. Sum together the decimal values of all the units
   let afterDeciamalSum = 0
   newAfterDecimalArray.forEach((current) => {
     afterDeciamalSum += parseFloat(current, 10)
   });
   // Result is: afterDeciamalSum = 0.2890625
-
+  // console.log(afterDeciamalSum)
   // 5. Sum the two numbers together
   let decimalNumber = beforeDeciamalSum + afterDeciamalSum
   // Result is: decimalNumber = 20.2890625
-
+  // console.log(decimalNumber)
   // 6. Return decimalNumber as a number
   return negativeSign.concat(decimalNumber)
 }
