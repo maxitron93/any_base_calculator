@@ -1,17 +1,64 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { evaluateDecimalString } from '../functions/evaluateDecimalString' // Takes a string with a decimal calculation, evaluates it, and converts it to a base string
+import { convertDecimalToBase } from '../functions/convertDecimalToBase'
 
 class OutputDisplay extends React.Component {
+  convertToOutputString = (inputString, newBase) => {
+    // 1. Convert the string to an array
+    let inputCalculationArray = inputString.split(" ")
+    
+    // 2. Convert every decimal number into a base number (return an array)
+    let convertedArray = inputCalculationArray.map((current) => {
+      if (current === "(" || current === ")" || current === "/" || current === "*" || current === "-" || current === "+" || current === "**" || current === "" || current === "~") {
+        return current
+      } else if (current.includes("~", 1)) {
+        return current
+      } else if (current.includes("~")) {
+        return convertDecimalToBase(current, newBase, this.props.symbols)
+      } else {
+        return convertDecimalToBase(current, newBase, this.props.symbols)
+      }
+    })
+
+    // 3. Convert the array back into a string
+    let convertedString = convertedArray.join(" ")
+    
+    // 4. Return converted string
+    return convertedString
+
+  }
+  
   state = {
-    outputBase: this.props.outputBase
+    outputBase: this.props.outputBase,
+    outputString: ""
   }
 
   changeBase = (event) => {
     let newBase = parseInt(event.target.value)
+    if (newBase >= 2 && newBase <= 64) {
+      this.setState(() => {
+        return {
+          outputBase: newBase,
+          outputString: this.convertToOutputString(this.props.inputCalculationInBase10, newBase)
+        }
+      })
+    }  
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.inputCalculationInBase10 !== this.props.inputCalculationInBase10) {
+      this.setState(() => {
+        return {
+          outputString: this.convertToOutputString(this.props.inputCalculationInBase10, this.state.outputBase)
+        }
+      })
+    }
+  }
+
+  componentDidMount(prevProps, prevState) {
     this.setState(() => {
       return {
-        outputBase: newBase
+        outputString: this.convertToOutputString(this.props.inputCalculationInBase10, this.state.outputBase)
       }
     })
   }
@@ -23,10 +70,39 @@ class OutputDisplay extends React.Component {
         <p>display in base:</p>
         <input type="text" onChange={this.changeBase} defaultValue={this.state.outputBase}/>
       </div>
-      <div className="output-display__base-output-area">{evaluateDecimalString("Decimal string is being evaluated to base", this.state.outputBase)}</div>
+      <div className="output-display__base-output-area">{this.state.outputString}</div>
     </div>
     )
   }
 }
 
 export { OutputDisplay }
+
+
+
+
+// // 1. Convert the string to an array
+// let inputCalculationArray = this.state.inputCalculation.split(" ")
+
+// // 2. Convert every base number into a decimal number (return an array)
+// let convertedArray = inputCalculationArray.map((current) => {
+//   if (current === "(" || current === ")" || current === "/" || current === "*" || current === "-" || current === "+" || current === "**" || current === "") {
+//     return current
+//   } else if (current.includes("~", 1)) {
+//     return current
+//   } else if (current.includes("~")) {
+//     return convertBaseToDecimal(current, this.state.inputBase, this.state.symbols)
+//   } else {
+//     return convertBaseToDecimal(current, this.state.inputBase, this.state.symbols)
+//   }
+// })
+
+// // 3. Convert the array back into a string
+// let convertedString = convertedArray.join(" ")
+
+// // 4. Update state of inputCalculationInBase10 with the string
+// this.setState(() => {
+//   return {
+//     inputCalculationInBase10: convertedString
+//   }
+// })

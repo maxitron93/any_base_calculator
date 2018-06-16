@@ -40,6 +40,13 @@ const convertAfterDeciamlToBase = (numberAfterDecimal, base, symbols) => {
 }
 
 const convertDecimalToBase = (number, base, symbols) => {
+  // 0. Test if string includes "~"
+  let negativeSign = ""
+  if (number.includes("~")) {
+    number = number.replace("~", "")
+    negativeSign = "~"
+  }
+
   // 1. Convert number to strung
   let numberAsString = number.toString()
 
@@ -60,9 +67,9 @@ const convertDecimalToBase = (number, base, symbols) => {
   // 6. Join the two numbers (strings) with a "." in the middle
   let baseNumber
   if (baseAfterDecimal) {
-    baseNumber = baseBeforeDecimal + "." + baseAfterDecimal
+    baseNumber = negativeSign + baseBeforeDecimal + "." + baseAfterDecimal
   } else {
-    baseNumber = baseBeforeDecimal
+    baseNumber = negativeSign + baseBeforeDecimal
   }
 
   // 7. Return baseNumber as a string

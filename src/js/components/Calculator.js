@@ -52,7 +52,8 @@ class Calculator extends React.Component {
   clearInputCalculation = () => {
     this.setState(() => {
       return {
-        inputCalculation: ""
+        inputCalculation: "",
+        inputCalculationInBase10: ""
       }
     })
   }
@@ -71,7 +72,7 @@ class Calculator extends React.Component {
 
     // 2. Convert every base number into a decimal number (return an array)
     let convertedArray = inputCalculationArray.map((current) => {
-      if (current === "(" || current === ")" || current === "/" || current === "*" || current === "-" || current === "+" || current === "**" || current === "") {
+      if (current === "(" || current === ")" || current === "/" || current === "*" || current === "-" || current === "+" || current === "**" || current === "" || current === "~") {
         return current
       } else if (current.includes("~", 1)) {
         return current
@@ -84,7 +85,6 @@ class Calculator extends React.Component {
 
     // 3. Convert the array back into a string
     let convertedString = convertedArray.join(" ")
-    console.log(convertedString)
 
     // 4. Update state of inputCalculationInBase10 with the string
     this.setState(() => {
@@ -105,7 +105,7 @@ class Calculator extends React.Component {
   render() {
     return (
       <div className="calculator">
-        <OutputDisplays />
+        <OutputDisplays inputCalculationInBase10={this.state.inputCalculationInBase10} symbols={this.state.symbols}/>
         <CalculationArea symbols={this.state.symbols} changeInputBase={this.changeInputBase} currentBase={this.state.inputBase} toggleFunSymbols={this.toggleFunSymbols} inputCalculation={this.state.inputCalculation} addToInputCalculation={this.addToInputCalculation} clearInputCalculation={this.clearInputCalculation} deleteFromInputCalculation={this.deleteFromInputCalculation} evaluateInputCalculation={this.evaluateInputCalculation} trackInputCalculation={this.trackInputCalculation}/>
       </div>
     )
