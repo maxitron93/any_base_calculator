@@ -15,8 +15,8 @@ class Calculator extends React.Component {
   state = {
     symbols: symbols,
     inputBase: 64,
-    inputCalculation: "",
-    inputCalculationInBase10: "",
+    inputCalculation: "( 1a + 38 - g ) / G.j5Hb",
+    inputCalculationInBase10: "( 100 + 200 + 42 ) / 16.7044127",
     evaluate: false
   }
 

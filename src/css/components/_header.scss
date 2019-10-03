@@ -1,12 +1,14 @@
 .header {
+  padding-top: 12px;
+  padding-bottom: 12px;
   background: $header-footer-color;
-  padding: 20px;
 }
 
-.header__title {
-  margin: 0px;
+.header__title { 
   color: $light-text-color;
   font-size: 3rem;
+  width: $calc-width;
+  margin: 0px auto;
 }
 
 .header__subtitle {
@@ -14,4 +16,6 @@
   color: $light-text-color;
   font-size: 1.8rem;
   padding-top: 10px;
+  width: $calc-width;
+  margin: 0px auto;
 }

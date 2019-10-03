@@ -7,6 +7,8 @@
 }
 
 .footer__text {
-  padding: 20px;
+  padding-top: 20px;
+  width: $calc-width;
+  margin: 0px auto;
   color: $light-text-color;
 }

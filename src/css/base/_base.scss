@@ -1,5 +1,7 @@
 html {
   font-size: 62.5%;
+  -webkit-user-select: none; // Stops divs being highlighted on double click
+  -moz-user-select: none; // Stops divs being highlighted on double click
 }
 
 * {
@@ -15,4 +17,5 @@ body {
   position: relative;
   padding-bottom: 60px;
   min-width: 800px;
+  min-height: 100vh;
 }

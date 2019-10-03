@@ -4,11 +4,13 @@
   height: 60px;
   margin: 2px;
   background: $output-display-background-color;
+  width: $display-width;
 }
 
 .output-display__base-change-area {
   display: inline-block;
-  width: 20%;
+  width: 25%;
+  min-width: 200px;
 }
 
 .output-display__base-change-area p {
@@ -32,7 +34,7 @@
   display: inline-flex;
   justify-content: flex-end;
   align-items: center;
-  width: 80%;
+  width: 75%;
   margin: 0 10px;
   height: 100%;
   font-size: 1.8rem;
